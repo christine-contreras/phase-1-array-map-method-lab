@@ -11,20 +11,41 @@ const tutorials = [
   'what is JSONP?'
 ];
 
-const titleCased = function(){
-  return tutorials.map(splitRejoin);
+// //anonymous function to return mapping of tutorials
+// const titleCased = function(){
+//   return tutorials.map(splitRejoin);
+// }
+
+// //function to split phrase into array and then rejoin after capitalizing 
+// function splitRejoin(phrase) {
+
+//   let words = phrase.split(' '); //split up phrase into an array
+//   words = words.map(capitalize); //map through new array and pass in capitalize function
+//   words = words.join(' '); //rejoin array into 1 phrase
+
+//   return words;
+// }
+
+//clean up code 
+const titleCased = () => {
+
+  return tutorials.map(phrase => {
+
+    let words = phrase.split(' ');
+    words = words.map(capitalize);
+    words = words.join(' ');
+
+    return words;
+  });
+
 }
 
 
-function splitRejoin(phrase) {
-
-  let words = phrase.split(' ');
-  words = words.map(capitalize);
-  words = words.join(' ');
-
-  return words;
-}
-
+//function to capitalize words
 function capitalize (word) {
   return word.charAt(0).toUpperCase() + word.slice(1);
+
+  //.chartAt(0) : finds first letter of the word
+  //,toUpperCase() : capitalizes that index
+  //word.slice(1) : create a slice of the words starting at index 1 to the end (rest of the word)
 }
